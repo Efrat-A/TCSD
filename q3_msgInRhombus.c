@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 
-// change if theres a new msg
+//e: change if theres a new msg 1/5
 #define MAX_MSG 3
 
 // msg len takes into account the " sign
@@ -11,18 +11,17 @@
    #define MSG2_LEN 7
    #define MSG3 "How do I get out of this rhombus?"
    #define MSG3_LEN 35
-    
-int print_ch( int times, char ch){
+   //e: add defines 2/5
+
+//small function, can change to inline macro
+int print_ch( int times, char ch) {
    for(int i=0; i< times; ++i)
       printf("%c",ch);
 }
 
 int main (void)
 {
-   // Hurray!
-   //You Win!!
-   //How do I get out of this rhombus?
-   int msg=0; // choise of msg
+   int msg=0;
    int n,len;
    char ch;
    
@@ -30,17 +29,18 @@ int main (void)
    printf("Enter 1 for \"%s\":\n",MSG1);
    printf("Enter 2 for \"%s\":\n",MSG2);
    printf("Enter 3 for \"%s\":\n",MSG3);
+   //e: add new msg option to ux 3/5
    scanf("%d",&msg);   
    
    while( msg > MAX_MSG || msg <= 0) {
-     printf("Invalid message index, please enter an index between 1 and 3:\n");
+     printf("Invalid message index, please enter an index between 1 and %d:\n",MAX_MSG);
      scanf("%d",&msg);
    }
    
    if(msg==1) len = MSG1_LEN;
    if(msg==2) len = MSG2_LEN;
    if(msg==3) len = MSG3_LEN;
-   // add other msgs here ..
+   // e: 4/5
    
    printf("Please enter your favorite character:\n");
    scanf("%c",&ch);   
@@ -65,7 +65,8 @@ int main (void)
      print_ch((n*2-2-1-len)/2,' ');
      if(msg==1) { printf("\"%s\"",MSG1); }
      if(msg==2) { printf("\"%s\"",MSG2); }
-     if(msg==3) { printf("\"%s\"",MSG3); } 
+     if(msg==3) { printf("\"%s\"",MSG3); }  
+     //e: another msg, continue here 5/5
      print_ch((n*2-2-1-len)/2,' ');
      print_ch(1,ch);
      printf("\n");
